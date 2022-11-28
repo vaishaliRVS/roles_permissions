@@ -1,5 +1,6 @@
 @extends('layouts.admin')
-
+<div class = "container mt-5">
+  <h2 class="text-center">New Permission</h2>
 <form method="POST" action = "{{ route('admin.permissions.store') }}">
   @csrf
     <div class="mb-3">
@@ -9,3 +10,4 @@
     @error('name')  <span class="error"> {{ $message }} </span> @enderror
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>

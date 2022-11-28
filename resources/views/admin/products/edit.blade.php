@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+<div class = "container mt-5">
+  <h2 class="text-center">New Product</h2>
 <form method="POST" action = "{{ route('admin.products.update', $product) }}">
   @csrf
   @method('PUT')
@@ -14,3 +16,4 @@
     @error('name')  <span class="error"> {{ $message }} </span> @enderror
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
+</div>

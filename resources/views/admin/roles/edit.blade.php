@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+<div class = "container mt-5">
+  <h2 class="text-center">New Role</h2>
 <form method="POST" action = "{{ route('admin.roles.update', $role) }}">
   @csrf
   @method('PUT')
@@ -10,24 +12,27 @@
     @error('name')  <span class="error"> {{ $message }} </span> @enderror
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
+</div>
+<div class = "container mt-5">
+  <h2 class="text-center">Role Permission</h2>
 
-<div>
-  Role Permission
   @if ($role->permissions)
       @foreach ($role->permissions as $role_permission)
         <form method="POST" action = "{{ route('admin.roles.permissions.revoke', [$role->id, $role_permission->id]) }}" onsubmit="return confirm('Are you sure?');">
           @csrf
           @method('DELETE')
-            <button type="submit" class="btn btn-primary">{{ $role_permission->name }}</button>
+            <button type="submit" class="btn text-primary">{{ $role_permission->name }}</button>
         </form>      
       @endforeach
   @endif
 </div>
 
+<div class = "container mt-5">
+  <h2 class="text-center">New Role</h2>
 <form method="POST" action = "{{ route('admin.roles.permissions', $role->id) }}">
   @csrf
     <div class="mb-3">
-      <select name="permission" id="permission" >
+      <select class="form-control" name="permission" id="permission" >
         @foreach ($permissions as $permission)            
           <option value="{{ $permission->name }}">{{ $permission->name }}</option>
         @endforeach
@@ -36,3 +41,4 @@
     @error('name')  <span class="error"> {{ $message }} </span> @enderror
     <button type="submit" class="btn btn-primary">Assign</button>
 </form>
+</div>
