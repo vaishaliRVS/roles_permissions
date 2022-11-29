@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
-<div class="container">
+<div class = "container mt-5">
+  <h2 class="text-center">Roles</h2>
      <a class="btn btn-success" href="{{ route('admin.roles.create') }}">Create</a>
     <table class="table">
         <thead>
@@ -27,4 +28,5 @@
         </tbody>
       </table>
 
+</div>
 </div>

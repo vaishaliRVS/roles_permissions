@@ -1,5 +1,6 @@
 @extends('layouts.admin')
-<div class="container">
+<div class = "container mt-5">
+  <h2 class="text-center">Products</h2>
   <a class="btn btn-success" href="{{ route('admin.products.create') }}">Create</a>
     <table class="table">
         <thead>
@@ -21,4 +22,5 @@
           @endforeach 
         </tbody>
       </table>
+</div>
 </div>
